@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: demo-app
+  
+  datasource:
+      username: sa
+      password: 
+      url: jdbc:h2:mem:customer_db
+      #url: jdbc:h2:file:/data/demo
+      driver-class-name: org.h2.Driver
+      test-while-idle: true
+      validation-query: SEELCT 1
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    show-sql: true
+      
+      

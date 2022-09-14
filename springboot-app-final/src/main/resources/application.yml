@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: demo-app
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  
+  
+server:
+  error:
+    include-message: ALWAYS
+    include-stacktrace: NEVER
+    
+     
+      
