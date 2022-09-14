@@ -7,13 +7,13 @@ import java.util.Optional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.sasiperi.demo.ApplicationTestBase;
+import com.sasiperi.demo.ApplicationBaseTest;
 import com.sasiperi.demo.entity.Customer;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class CustomerRepositoryTest extends ApplicationTestBase{
+public class CustomerRepositoryTest extends ApplicationBaseTest{
 	
 	@Autowired
 	CustomerRepository customerRepo;

@@ -18,4 +18,5 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
     show-sql: true
       
-      
+customer:
+  getbyssn.endpoint: http://localhost:{TEST_LOCAL_PORT}/v1/customer/ssn/{ssn}

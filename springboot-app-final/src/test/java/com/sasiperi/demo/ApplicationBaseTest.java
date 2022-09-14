@@ -16,6 +16,6 @@ import org.springframework.test.context.ActiveProfiles;
 //Throw all/any list of custom extensions (e.g. Test Logging, Log statements for PHI or a specific error code etc..) here.
 //@ExtendWith(LoggingExtension.class, MyPHIExtension.class)
 
-public class ApplicationTestBase {
+public class ApplicationBaseTest {
 
 }

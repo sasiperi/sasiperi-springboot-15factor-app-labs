@@ -12,6 +12,7 @@ server:
   error:
     include-message: ALWAYS
     include-stacktrace: NEVER
-    
+  servlet:
+    context-path: /v1
      
       
