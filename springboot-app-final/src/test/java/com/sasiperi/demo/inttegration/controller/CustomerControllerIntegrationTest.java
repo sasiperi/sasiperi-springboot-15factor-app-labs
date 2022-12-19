@@ -1,7 +1,8 @@
-package com.sasiperi.demo.controller;
+package com.sasiperi.demo.inttegration.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,11 +12,13 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
 import com.sasiperi.demo.ApplicationBaseTest;
+import com.sasiperi.demo.TestTypes;
 import com.sasiperi.demo.entity.Customer;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Tag(TestTypes.INTEGRATION_TEST)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
 public class CustomerControllerIntegrationTest extends ApplicationBaseTest {
 
@@ -28,7 +31,6 @@ public class CustomerControllerIntegrationTest extends ApplicationBaseTest {
     @LocalServerPort
     String TEST_LOCAL_PORT;
 
-	
 	@Test
     public void testGetCustomerBySsn()
     {
