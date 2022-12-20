@@ -9,9 +9,7 @@
 		
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.sasiperi.demo</groupId>
 	<artifactId>springboot-app-final</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-app-final</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
