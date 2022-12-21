@@ -8,20 +8,23 @@ pipeline {
 
     stages {
         stage("Checkout Step"){
-
-            checkout(
-                [
-                    $class: 'GitSCM', 
-                    branches: [[name: '*/main']], 
-                    extensions: [], 
-                    userRemoteConfigs: [
-                        [
-                            credentialsId: 'git-hub-pt0ken', 
-                            url: 'https://github.com/sasiperi/sasiperi-springboot-15factor-app-labs'
+            steps{
+                checkout(
+                    [
+                        $class: 'GitSCM', 
+                        branches: [[name: '*/main']], 
+                        extensions: [], 
+                        userRemoteConfigs: [
+                            [
+                                credentialsId: 'git-hub-pt0ken', 
+                                url: 'https://github.com/sasiperi/sasiperi-springboot-15factor-app-labs'
+                            ]
                         ]
                     ]
-                ]
             )
+
+        }
+            
         }
 
         stage('Build') {
