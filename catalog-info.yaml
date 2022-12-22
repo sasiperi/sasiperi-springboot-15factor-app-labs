@@ -5,7 +5,7 @@ metadata:
   name: sasiperi-customer-api
   description: Sample Spring Boot API for sample Customer
   annotations:
-    'jenkins.io/job-full-name': sasi-jobs/job/sp-boot-ap01
+    jenkins.io/job-full-name: sasi-jobs/job/sp-boot-ap01
 spec:
   type: openapi
   lifecycle: production
