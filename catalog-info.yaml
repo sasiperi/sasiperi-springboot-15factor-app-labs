@@ -143,6 +143,10 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: artist-lookup
+  name: sp-boot-ap01
   annotations:
-    'jenkins.io/job-full-name': teamA/artistLookup-build
+    'jenkins.io/job-full-name': sp-boot-ap01
+spec:
+  type: cicd
+  owner: sasipers@adp.com
+  lifecycle: experimental
