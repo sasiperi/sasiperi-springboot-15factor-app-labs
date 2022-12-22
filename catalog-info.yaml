@@ -1,0 +1,148 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: sasiperi-customer-api
+  description: Sample Spring Boot API for sample Customer
+spec:
+  type: openapi
+  lifecycle: production
+  owner: admin:sasiperis
+  system: 15factor-sample-api
+  definition: |
+    openapi: 3.0.1
+    info:
+      title: OpenAPI definition
+      version: v0
+    servers:
+    - url: http://localhost:8080/v1
+      description: Generated server url
+    paths:
+      "/customer":
+        get:
+          tags:
+          - customer-controller
+          operationId: getAllCustomer
+          responses:
+            '200':
+              description: OK
+              content:
+                "*/*":
+                  schema:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/Customer"
+            '404':
+              description: Not Found
+        post:
+          tags:
+          - customer-controller
+          operationId: createCustomer
+          requestBody:
+            content:
+              application/json:
+                schema:
+                  "$ref": "#/components/schemas/Customer"
+            required: true
+          responses:
+            '200':
+              description: OK
+              content:
+                "*/*":
+                  schema:
+                    "$ref": "#/components/schemas/Customer"
+            '404':
+              description: Not Found
+      "/customer/{id}":
+        get:
+          tags:
+          - customer-controller
+          operationId: getCustomer
+          parameters:
+          - name: id
+            in: path
+            required: true
+            schema:
+              type: integer
+              format: int64
+          responses:
+            '200':
+              description: OK
+              content:
+                "*/*":
+                  schema:
+                    "$ref": "#/components/schemas/Customer"
+            '404':
+              description: Not Found
+        patch:
+          tags:
+          - customer-controller
+          operationId: updateCustomer
+          parameters:
+          - name: id
+            in: path
+            required: true
+            schema:
+              type: integer
+              format: int64
+          responses:
+            '200':
+              description: OK
+              content:
+                "*/*":
+                  schema:
+                    "$ref": "#/components/schemas/Customer"
+            '404':
+              description: Not Found
+      "/customer/ssn/{ssn}":
+        get:
+          tags:
+          - customer-controller
+          operationId: getCustomer_1
+          parameters:
+          - name: ssn
+            in: path
+            required: true
+            schema:
+              type: integer
+              format: int32
+          responses:
+            '200':
+              description: OK
+              content:
+                "*/*":
+                  schema:
+                    "$ref": "#/components/schemas/Customer"
+            '404':
+              description: Not Found
+    components:
+      schemas:
+        Customer:
+          required:
+          - ssn
+          type: object
+          properties:
+            customerId:
+              type: integer
+              format: int64
+            firstName:
+              maxLength: 200
+              minLength: 10
+              type: string
+            lastName:
+              type: string
+            ssn:
+              type: integer
+              format: int32
+            age:
+              maximum: 150
+              minimum: 18
+              type: integer
+              format: int32
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: artist-lookup
+  annotations:
+    'jenkins.io/job-full-name': teamA/artistLookup-build
