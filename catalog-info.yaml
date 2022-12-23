@@ -6,6 +6,7 @@ metadata:
   description: Sample Spring Boot API for sample Customer
   annotations:
     jenkins.io/job-full-name: sasi-jobs
+    backstage.io/techdocs-ref: url:https://github.com/sasiperi/sasiperi-springboot-15factor-app-labs
 spec:
   type: openapi
   lifecycle: production
