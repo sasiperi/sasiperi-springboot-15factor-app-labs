@@ -27,7 +27,7 @@ pipeline {
             
         }
 
-        stage('Build') {
+        stage('Build Artefacts') {
             steps {
                 /*
                    dir('asiperi-springboot-15factor-app-labs') {
@@ -42,6 +42,14 @@ pipeline {
                 // To run Maven on a Windows agent, use
                 // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
+           
+        }
+         stage('Build Images') {
+            steps {
+               
+                	// Run Maven on a Unix agent.
+                	sh "mvn -pl :springboot-app-final -am spring-boot:build-image -DskipTests"
+                }
 
             post {
                 // If Maven was able to run the tests, even if some of the test
@@ -51,6 +59,14 @@ pipeline {
                     archiveArtifacts 'springboot-app-final/target/*.jar'
                 }
             }
+        }
+        stage('Deploy') {
+            steps {
+              
+                sh "helm install jen-helm01 springboot-app-final/target/classes/META-INF/dekorate/helm/springboot-app-final-chart"
+                
+            }
+            
         }
     }
 }
