@@ -39,7 +39,7 @@ public class Customer extends AbstractTimestampEntity implements Serializable {
 	private long customerId;
 	
 	@Column(name = "first_name", nullable = false, length = 25)
-	@Size(min = 10, max = 200, message = "About Me must be between 10 and 200 characters")
+	@Size(min = 4, max = 10, message = "First name must be 4 to 10 charecters!")
 	private String firstName;
 	
 	@Column(name = "last_name", nullable = false, length = 25)

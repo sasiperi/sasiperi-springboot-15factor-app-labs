@@ -1,6 +1,6 @@
 spring:
   application:
-    name: demo-app
+    name: springboot-app-final
 
   jpa:
     hibernate:
@@ -15,4 +15,15 @@ server:
   servlet:
     context-path: /v1
      
-      
+##### Dekorate HELM Stuff ###########
+dekorate:
+  kubernetes: 
+    part-of: ^project.groupId^
+   
+  helm:
+    name: springboot-app-final-chart
+    #values:
+    #-   property: metadata.namespace
+        #paths: metadata.namespace
+        #value: sasiperi
+ 
