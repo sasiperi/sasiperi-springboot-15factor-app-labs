@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sasiperi.demo.entity.Customer;
 import com.sasiperi.demo.service.CustomerService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
+@Slf4j
 public class CustomerController {
 	
 	//TODO : NOT ADVICED DO CONSTURCTOR INJECTION
@@ -23,6 +26,7 @@ public class CustomerController {
 	@GetMapping("/customer/{id}")
 	public Customer getCustomer(@PathVariable("id") Long id) {
 		
+		log.info(" Sample context logging customer-id {} ", id);
 		return customerService.getCustomerById(id);
 		
 	}
@@ -30,6 +34,7 @@ public class CustomerController {
 	@PatchMapping("/customer/{id}")
 	public Customer updateCustomer(@PathVariable("id") Long id) {
 		
+		log.info(" Sample context logging customer-id {} ", id);
 		return customerService.updateCustomerById(id);
 		
 	}

@@ -7,6 +7,9 @@ metadata:
   annotations:
     jenkins.io/job-full-name: sasi-jobs
     backstage.io/techdocs-ref: url:https://github.com/sasiperi/sasiperi-springboot-15factor-app-labs
+    backstage.io/kubernetes-id: springboot-app-final
+    backstage.io/kubernetes-namespace: sasiperi
+    dynatrace.com/dynatrace-entity-id: CUSTOM_DEVICE-8A26BB2F3AD06DA7
 spec:
   type: openapi
   lifecycle: production

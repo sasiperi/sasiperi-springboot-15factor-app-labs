@@ -63,7 +63,7 @@ pipeline {
         stage('Deploy') {
             steps {
               
-                sh "helm install jen-helm01 springboot-app-final/target/classes/META-INF/dekorate/helm/springboot-app-final-chart"
+                sh "helm upgrade --install jen-helm01 springboot-app-final/target/classes/META-INF/dekorate/helm/springboot-app-final-chart"
                 
             }
             
