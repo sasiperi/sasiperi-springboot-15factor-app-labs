@@ -14,6 +14,8 @@ To run the application
 ```sh
     mvn -pl :springboot-app-final -am spring-boot:build-image
 ```
+Access service/api:
 
-To access API-Docs (swagger gui):  http://localhost:8086/v1/swagger-ui/index.html
-To access raw openAPI spec:        http://localhost:8086/v1/v3/api-docs
+
+- To access API-Docs (swagger gui):  http://localhost:8086/v1/swagger-ui/index.html
+- To access raw openAPI spec:        http://localhost:8086/v1/v3/api-docs
