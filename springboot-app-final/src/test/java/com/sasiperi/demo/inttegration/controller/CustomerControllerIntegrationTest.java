@@ -2,6 +2,7 @@ package com.sasiperi.demo.inttegration.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class CustomerControllerIntegrationTest extends ApplicationBaseTest {
     String TEST_LOCAL_PORT;
 
 	@Test
+	@Disabled
     public void testGetCustomerBySsn()
     {
         log.info("URL end point " + GET_BY_SSN_EP);

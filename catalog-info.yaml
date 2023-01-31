@@ -18,122 +18,125 @@ spec:
   definition: |
     openapi: 3.0.1
     info:
-      title: OpenAPI definition
-      version: v0
+      title: Demo Customer API
+      description: Demo stuff
+      version: v1
     servers:
-    - url: http://localhost:8080/v1
-      description: Generated server url
+      - url: http://localhost:8080/v1
+        description: Generated server url
+    security:
+      - security_client_creds: []
     paths:
-      "/customer":
+      /customer:
         get:
           tags:
-          - customer-controller
+            - customer-controller
           operationId: getAllCustomer
           responses:
             '200':
               description: OK
               content:
-                "*/*":
+                '*/*':
                   schema:
                     type: array
                     items:
-                      "$ref": "#/components/schemas/Customer"
+                      $ref: '#/components/schemas/Customer'
             '404':
               description: Not Found
         post:
           tags:
-          - customer-controller
+            - customer-controller
           operationId: createCustomer
           requestBody:
             content:
               application/json:
                 schema:
-                  "$ref": "#/components/schemas/Customer"
+                  $ref: '#/components/schemas/Customer'
             required: true
           responses:
             '200':
               description: OK
               content:
-                "*/*":
+                '*/*':
                   schema:
-                    "$ref": "#/components/schemas/Customer"
+                    $ref: '#/components/schemas/Customer'
             '404':
               description: Not Found
-      "/customer/{id}":
+      /customer/{id}:
         get:
           tags:
-          - customer-controller
+            - customer-controller
           operationId: getCustomer
           parameters:
-          - name: id
-            in: path
-            required: true
-            schema:
-              type: integer
-              format: int64
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: integer
+                format: int64
           responses:
             '200':
               description: OK
               content:
-                "*/*":
+                '*/*':
                   schema:
-                    "$ref": "#/components/schemas/Customer"
+                    $ref: '#/components/schemas/Customer'
             '404':
               description: Not Found
         patch:
           tags:
-          - customer-controller
+            - customer-controller
           operationId: updateCustomer
           parameters:
-          - name: id
-            in: path
-            required: true
-            schema:
-              type: integer
-              format: int64
+            - name: id
+              in: path
+              required: true
+              schema:
+                type: integer
+                format: int64
           responses:
             '200':
               description: OK
               content:
-                "*/*":
+                '*/*':
                   schema:
-                    "$ref": "#/components/schemas/Customer"
+                    $ref: '#/components/schemas/Customer'
             '404':
               description: Not Found
-      "/customer/ssn/{ssn}":
+      /customer/ssn/{ssn}:
         get:
           tags:
-          - customer-controller
+            - customer-controller
           operationId: getCustomer_1
           parameters:
-          - name: ssn
-            in: path
-            required: true
-            schema:
-              type: integer
-              format: int32
+            - name: ssn
+              in: path
+              required: true
+              schema:
+                type: integer
+                format: int32
           responses:
             '200':
               description: OK
               content:
-                "*/*":
+                '*/*':
                   schema:
-                    "$ref": "#/components/schemas/Customer"
+                    $ref: '#/components/schemas/Customer'
             '404':
               description: Not Found
     components:
       schemas:
         Customer:
           required:
-          - ssn
+            - ssn
           type: object
           properties:
             customerId:
               type: integer
               format: int64
             firstName:
-              maxLength: 200
-              minLength: 10
+              maxLength: 10
+              minLength: 4
               type: string
             lastName:
               type: string
@@ -145,3 +148,12 @@ spec:
               minimum: 18
               type: integer
               format: int32
+      securitySchemes:
+        security_client_creds:
+          type: oauth2
+          flows:
+            clientCredentials:
+              tokenUrl: https://dev-696450.okta.com/oauth2/default/v1/token
+              scopes:
+                urn:sp-api:read: read scope
+                urn:sp-api:write: write scope

@@ -11,11 +11,10 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 
 //Below is if we want a general global security definition to be enabled, on every endpoint.
 // Which can be overridden on a specific operation/request-method/Path
-/*@OpenAPIDefinition(info = @Info(title = "Demo Customer API",
-		description = "Demo stuff", version = "v1"),
-		security = { @SecurityRequirement(name = "security_client_creds") } )*/
 @OpenAPIDefinition(info = @Info(title = "Demo Customer API",
-description = "Demo stuff", version = "v1") )
+		description = "Demo stuff", version = "v1"),
+		security = { @SecurityRequirement(name = "security_client_creds") } )
+//@OpenAPIDefinition(info = @Info(title = "Demo Customer API", description = "Demo stuff", version = "v1") )
 @SecurityScheme(name = "security_client_creds", type = SecuritySchemeType.OAUTH2,
 		flows = @OAuthFlows(clientCredentials = @OAuthFlow(
 				tokenUrl = "${springdoc.oAuthFlow.tokenUrl}", scopes = {

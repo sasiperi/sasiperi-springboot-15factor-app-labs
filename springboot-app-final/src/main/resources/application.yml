@@ -1,7 +1,6 @@
 spring:
   application:
     name: springboot-app-final
-
   jpa:
     hibernate:
       ddl-auto: none
@@ -22,9 +21,9 @@ server:
     include-stacktrace: NEVER
   servlet:
     context-path: /v1
-     
+  port: 8086 
 
-##### Dekorate HELM Stuff ###########
+#### Dekorate HELM Stuff ###########
 dekorate:
   kubernetes: 
     part-of: ^project.groupId^
