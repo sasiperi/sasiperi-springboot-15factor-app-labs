@@ -10,6 +10,7 @@ metadata:
     backstage.io/kubernetes-id: springboot-app-final
     #backstage.io/kubernetes-namespace: sasiperi
     dynatrace.com/dynatrace-entity-id: CUSTOM_DEVICE-8A26BB2F3AD06DA7
+    github.com/project-slug: sasiperi/sasiperi-springboot-15factor-app-labs
 spec:
   type: openapi
   lifecycle: production
